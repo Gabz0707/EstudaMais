@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda+ - Plataforma Educativa e Profissionalizante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Estuda+</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#trilhas">Trilhas</a></li>
+                <li><a href="#empresas">Empresas</a></li>
+                <li><a href="#protocolo">Protocolo 21 Dias</a></li>
+                <li><a href="#questionario">Questionário</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Transforme seu futuro com <span class="highlight">educação de qualidade</span>
+            </h1>
+            <p class="hero-subtitle">
+                Cursos rápidos, trilhas de capacitação e conexão direta com empresas parceiras
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('cursos')">
+                    <i class="fas fa-rocket"></i>
+                    Começar Agora
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('protocolo')">
+                    <i class="fas fa-brain"></i>
+                    Protocolo Psicológico
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="element element-1"><i class="fas fa-code"></i></div>
+                <div class="element element-2"><i class="fas fa-chart-line"></i></div>
+                <div class="element element-3"><i class="fas fa-lightbulb"></i></div>
+                <div class="element element-4"><i class="fas fa-users"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos Section -->
+    <section id="cursos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cursos Rápidos</h2>
+                <p class="section-subtitle">Aprenda habilidades essenciais para o mercado de trabalho</p>
+            </div>
+            <div class="cursos-grid" id="cursosGrid">
+                <!-- Cursos serão carregados dinamicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trilhas Section -->
+    <section id="trilhas" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trilhas de Capacitação</h2>
+                <p class="section-subtitle">Caminhos estruturados para sua formação profissional</p>
+            </div>
+            <div class="trilhas-grid" id="trilhasGrid">
+                <!-- Trilhas serão carregadas dinamicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Empresas Section -->
+    <section id="empresas" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Empresas Parceiras</h2>
+                <p class="section-subtitle">Conecte-se diretamente com oportunidades de emprego e estágio</p>
+            </div>
+            <div class="empresas-grid" id="empresasGrid">
+                <!-- Empresas serão carregadas dinamicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocolo 21 Dias Section -->
+    <section id="protocolo" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Protocolo Psicológico de 21 Dias</h2>
+                <p class="section-subtitle">Reprograme sua mentalidade de estudo com técnicas comprovadas</p>
+            </div>
+            <div class="protocolo-content" id="protocoloContent">
+                <!-- Protocolo será carregado dinamicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Questionário Section -->
+    <section id="questionario" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Questionário Psicológico</h2>
+                <p class="section-subtitle">Ajude-nos a entender melhor seu perfil de estudo</p>
+            </div>
+            <div class="questionario-container">
+                <form id="questionarioForm" class="questionario-form">
+                    <div class="form-group">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idade">Idade:</label>
+                        <input type="number" id="idade" name="idade" min="14" max="30" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="escolaridade">Tipo de escola que frequentou:</label>
+                        <select id="escolaridade" name="escolaridade" required>
+                            <option value="">Selecione...</option>
+                            <option value="publica">Apenas escola pública</option>
+                            <option value="particular">Apenas escola particular</option>
+                            <option value="ambas">Ambas (pública e particular)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivacao">Como você se sente em relação aos estudos?</label>
+                        <select id="motivacao" name="motivacao" required>
+                            <option value="">Selecione...</option>
+                            <option value="muito_motivado">Muito motivado</option>
+                            <option value="motivado">Motivado</option>
+                            <option value="neutro">Neutro</option>
+                            <option value="desmotivado">Desmotivado</option>
+                            <option value="muito_desmotivado">Muito desmotivado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dificuldades">Quais são suas principais dificuldades nos estudos?</label>
+                        <textarea id="dificuldades" name="dificuldades" rows="4" placeholder="Descreva suas dificuldades..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="objetivos">Quais são seus objetivos profissionais?</label>
+                        <textarea id="objetivos" name="objetivos" rows="4" placeholder="Descreva seus objetivos..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="familia">Como sua família apoia seus estudos?</label>
+                        <select id="familia" name="familia" required>
+                            <option value="">Selecione...</option>
+                            <option value="muito_apoio">Muito apoio</option>
+                            <option value="apoio">Apoio</option>
+                            <option value="pouco_apoio">Pouco apoio</option>
+                            <option value="sem_apoio">Sem apoio</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Questionário
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3><i class="fas fa-robot"></i> Estuda+ Assistant</h3>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                                    <div class="message bot-message">
+                        <i class="fas fa-robot"></i>
+                        <div class="message-content">
+                            Olá! Sou o Estuda+ Assistant. Como posso te ajudar hoje?
+                        </div>
+                    </div>
+            </div>
+            <div class="chatbot-input">
+                <div class="input-group">
+                    <input type="text" id="chatbotInput" placeholder="Digite sua mensagem...">
+                    <button class="btn-audio" id="btnAudio" title="Gravar áudio">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="btn-send" id="btnSend">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Estuda+</h3>
+                    <p>Transformando vidas através da educação e tecnologia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#trilhas">Trilhas</a></li>
+                        <li><a href="#empresas">Empresas</a></li>
+                        <li><a href="#protocolo">Protocolo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@edutech.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Estuda+. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
